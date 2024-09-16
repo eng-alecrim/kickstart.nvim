@@ -31,7 +31,7 @@ function CompileCode()
   local ext = vim.fn.fnamemodify(current_file, ':e')
   if ext == 'c' then
     local output_file = vim.fn.expand '%:r'
-    vim.cmd 'w' -- Save the current buffer
+    vim.cmd 'w'                                                     -- Save the current buffer
     vim.cmd('!' .. 'gcc -o ' .. output_file .. ' ' .. current_file) -- Compile with gcc
   else
     vim.cmd 'w'
@@ -49,13 +49,5 @@ vim.keymap.set('n', '<leader>cr', ':RunCode<CR>', { desc = '[C]ode [R]un' })
 -- Para compilar
 vim.keymap.set('n', '<leader>cc', ':CompileCode<CR>', { desc = '[C]ode [C]ompile' })
 
---
--- Para salvar usando o Black
-vim.keymap.set('n', '<leader>cw', ':SaveCode<CR>', { desc = '[C]ode [S]ave' })
-
--- Para salvar usando o Black e rodar
-vim.keymap.set('n', '<leader>cr', ':RunCode<CR>', { desc = '[C]ode [R]un' })
-
->>>>>>> bee2901 (atts)
 -- Para o obsidian-neovim
 vim.opt.conceallevel = 1
